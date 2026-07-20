@@ -54,6 +54,52 @@ def detect_category(text):
             "employee",
             "behavior",
             "response"
+        ],
+        "Schools & Colleges": [
+            "school",
+            "college",
+            "teacher",
+            "principal",
+            "class",
+            "admission",
+            "campus"
+        ],
+        "Security": [
+            "security",
+            "guard",
+            "safety",
+            "theft",
+            "cctv",
+            "attack",
+            "police"
+        ],
+        "Canteen": [
+            "canteen",
+            "food",
+            "mess",
+            "cafeteria",
+            "meal",
+            "snack",
+            "hygiene"
+        ],
+        "Maintenance": [
+            "maintenance",
+            "repair",
+            "broken",
+            "leak",
+            "plumbing",
+            "electric",
+            "cleaning"
+        ],
+        "Company": [
+            "company",
+            "office",
+            "manager",
+            "employee",
+            "workplace",
+            "hr",
+            "corporate",
+            "policy"
         ]
     }
 
@@ -81,9 +127,12 @@ def predict_priority(sentiment, category):
 # -----------------------------------
 # Main AI Analyzer
 # -----------------------------------
-def analyze_complaint(text):
+def analyze_complaint(text, user_category=None):
     sentiment = analyze_sentiment(text)
-    category = detect_category(text)
+    if user_category and user_category != "Select Category":
+        category = user_category
+    else:
+        category = detect_category(text)
     priority = predict_priority(sentiment, category)
 
     summary = text[:100]

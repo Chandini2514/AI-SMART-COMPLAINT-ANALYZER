@@ -9,7 +9,7 @@ routes = Blueprint("routes", __name__)
 def submit_complaint():
     data = request.get_json() or {}
     complaint_text = data.get("complaint", "")
-    analysis = analyze_complaint(complaint_text)
+    analysis = analyze_complaint(complaint_text, data.get("category"))
 
     complaint = Complaint(
         name=data.get("name", ""),
@@ -29,5 +29,69 @@ def submit_complaint():
         "status": "Success",
         "message": "Complaint submitted successfully!",
         "analysis": analysis,
+    })
+
+@routes.route("/chatbot", methods=["POST"])
+def complaint_chatbot():
+    data = request.get_json() or {}
+    message = data.get("message", "").strip()
+
+    if not message:
+        return jsonify({
+            "status": "Error",
+            "message": "Please provide a complaint or question.",
+        }), 400
+
+    analysis = analyze_complaint(message)
+
+    return jsonify({
+        "status": "Success",
+        "message": "Chatbot response generated.",
+        "response": {
+            "category": analysis["Category"],
+            "priority": analysis["Priority"],
+            "sentiment": analysis["Sentiment"],
+            "suggestion": analysis["Suggestion"],
+            "summary": analysis["Summary"],
+        }
+    })
+
+@routes.route("/complaints/<int:complaint_id>", methods=["DELETE"])
+def delete_complaint(complaint_id):
+    complaint = Complaint.query.get(complaint_id)
+    if not complaint:
+        return jsonify({
+            "status": "Error",
+            "message": "Complaint not found.",
+        }), 404
+
+    db.session.delete(complaint)
+    db.session.commit()
+
+    return jsonify({
+        "status": "Success",
+        "message": "Complaint deleted successfully.",
+    })
+
+@routes.route("/complaints", methods=["GET"])
+def get_complaints():
+    complaints = Complaint.query.order_by(Complaint.created_at.desc()).all()
+    return jsonify({
+        "status": "Success",
+        "data": [
+            {
+                "id": complaint.id,
+                "name": complaint.name,
+                "email": complaint.email,
+                "complaint": complaint.complaint,
+                "category": complaint.category,
+                "priority": complaint.priority,
+                "status": complaint.status,
+                "summary": complaint.summary,
+                "suggestion": complaint.suggestion,
+                "created_at": complaint.created_at.strftime("%d-%m-%Y %H:%M"),
+            }
+            for complaint in complaints
+        ]
     })
     

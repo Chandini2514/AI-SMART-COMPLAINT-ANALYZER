@@ -1,439 +1,203 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AI Smart Complaint Analyzer - History</title>
-
-
-<style>
-
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-
-}
-
-
-
-body{
-
-background:#f1f5f9;
-
-}
-
-
-
-/* Navbar */
-
-nav{
-
-background:#2563eb;
-
-color:white;
-
-padding:20px 40px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-
-
-nav a{
-
-color:white;
-
-text-decoration:none;
-
-margin:0 15px;
-
-}
-
-
-
-.logout{
-
-background:white;
-
-color:#2563eb;
-
-border:none;
-
-padding:10px 18px;
-
-border-radius:8px;
-
-cursor:pointer;
-
-}
-
-
-
-/* Content */
-
-
-.container{
-
-width:90%;
-
-margin:40px auto;
-
-}
-
-
-
-h1{
-
-color:#1e3a8a;
-
-margin-bottom:30px;
-
-}
-
-
-
-.table-box{
-
-background:white;
-
-padding:30px;
-
-border-radius:15px;
-
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-
-}
-
-
-
-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-}
-
-
-
-th{
-
-background:#2563eb;
-
-color:white;
-
-padding:15px;
-
-}
-
-
-
-td{
-
-padding:15px;
-
-text-align:center;
-
-border-bottom:1px solid #ddd;
-
-}
-
-
-
-.resolved{
-
-color:green;
-
-font-weight:bold;
-
-}
-
-
-
-.pending{
-
-color:red;
-
-font-weight:bold;
-
-}
-
-
-
-.processing{
-
-color:orange;
-
-font-weight:bold;
-
-}
-
-
-
-button{
-
-cursor:pointer;
-
-}
-
-
-
-@media(max-width:700px){
-
-table{
-
-font-size:12px;
-
-}
-
-}
-
-
-</style>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Smart Complaint Analyzer - History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f1f5f9;
+        }
+
+        nav {
+            background: #2563eb;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .logout {
+            background: white;
+            color: #2563eb;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 30px;
+        }
+
+        .table-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #2563eb;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .resolved {
+            color: green;
+            font-weight: bold;
+        }
+
+        .pending {
+            color: red;
+            font-weight: bold;
+        }
+
+        .processing {
+            color: orange;
+            font-weight: bold;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        @media(max-width:700px) {
+            table {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
-
 <body>
-
-
-
-
-<nav>
-
-
-<h2>
-🤖 AI Complaint Analyzer
-</h2>
-
-
-
-<div>
-
-
-<a href="dashboard.html">
-Dashboard
-</a>
-
-
-<a href="complaint.html">
-Complaint
-</a>
-
-
-<a href="history.html">
-History
-</a>
-
-
-<button class="logout" onclick="logout()">
-Logout
-</button>
-
-
-</div>
-
-
-</nav>
-
-
-
-
-
-
-
-<div class="container">
-
-
-<h1>
-Complaint History
-</h1>
-
-
-
-
-
-<div class="table-box">
-
-
-<table>
-
-
-<tr>
-
-<th>
-Complaint ID
-</th>
-
-
-<th>
-Category
-</th>
-
-
-<th>
-Priority
-</th>
-
-
-<th>
-Status
-</th>
-
-
-<th>
-Date
-</th>
-
-
-</tr>
-
-
-
-
-
-<tr>
-
-<td>
-101
-</td>
-
-
-<td>
-Internet Issue
-</td>
-
-
-<td>
-High
-</td>
-
-
-<td class="resolved">
-Resolved
-</td>
-
-
-<td>
-20-07-2026
-</td>
-
-
-</tr>
-
-
-
-
-
-
-<tr>
-
-<td>
-102
-</td>
-
-
-<td>
-Electricity Problem
-</td>
-
-
-<td>
-Medium
-</td>
-
-
-<td class="pending">
-Pending
-</td>
-
-
-<td>
-19-07-2026
-</td>
-
-
-</tr>
-
-
-
-
-
-
-
-<tr>
-
-<td>
-103
-</td>
-
-
-<td>
-Banking Issue
-</td>
-
-
-<td>
-Low
-</td>
-
-
-<td class="processing">
-Processing
-</td>
-
-
-<td>
-18-07-2026
-</td>
-
-
-</tr>
-
-
-
-</table>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<script>
-
-
-function logout(){
-
-alert("Logged out successfully!");
-
-window.location.href="index.html";
-
-}
-
-
-</script>
-
-
-
+    <nav>
+        <h2>🤖 AI Complaint Analyzer</h2>
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="complaint.html">Complaint</a>
+            <a href="history.html">History</a>
+            <button class="logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Complaint History</h1>
+
+        <div class="table-box">
+            <table>
+                <tr>
+                    <th>Complaint ID</th>
+                    <th>Category</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+                <tbody id="historyBody">
+                    <tr>
+                        <td colspan="5" style="text-align:center; padding:20px; color:#555;">Loading complaints...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        async function loadHistory() {
+            try {
+                const response = await fetch('/complaints');
+                if (!response.ok) {
+                    throw new Error('Server returned ' + response.status);
+                }
+                const data = await response.json();
+                const complaints = data.data || [];
+                const tbody = document.getElementById('historyBody');
+                tbody.innerHTML = '';
+
+                if (!complaints.length) {
+                    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:20px; color:#555;">No complaints found.</td></tr>';
+                    return;
+                }
+
+                complaints.forEach(complaint => {
+                    const statusClass = complaint.status ? complaint.status.toLowerCase() : 'pending';
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${complaint.id}</td>
+                        <td>${complaint.category || 'Other'}</td>
+                        <td>${complaint.priority || 'N/A'}</td>
+                        <td class="${statusClass}">${complaint.status || 'Pending'}</td>
+                        <td>${complaint.created_at || ''}</td>
+                        <td><button onclick="deleteComplaint(${complaint.id})">Delete</button></td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            } catch (error) {
+                console.error(error);
+                document.getElementById('historyBody').innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:#555;">Unable to load history.</td></tr>';
+            }
+        }
+
+        async function deleteComplaint(id) {
+            const confirmed = confirm('Delete this complaint from history?');
+            if (!confirmed) return;
+
+            try {
+                const response = await fetch(`/complaints/${id}`, {
+                    method: 'DELETE',
+                });
+
+                if (!response.ok) {
+                    throw new Error('Server returned ' + response.status);
+                }
+
+                await loadHistory();
+            } catch (error) {
+                console.error(error);
+                alert('Unable to delete complaint. Please try again.');
+            }
+        }
+
+        function logout() {
+            alert('Logged out successfully!');
+            window.location.href = 'index.html';
+        }
+
+        window.addEventListener('DOMContentLoaded', loadHistory);
+    </script>
 </body>
 
 </html>
