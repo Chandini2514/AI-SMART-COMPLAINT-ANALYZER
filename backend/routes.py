@@ -31,31 +31,6 @@ def submit_complaint():
         "analysis": analysis,
     })
 
-@routes.route("/chatbot", methods=["POST"])
-def complaint_chatbot():
-    data = request.get_json() or {}
-    message = data.get("message", "").strip()
-
-    if not message:
-        return jsonify({
-            "status": "Error",
-            "message": "Please provide a complaint or question.",
-        }), 400
-
-    analysis = analyze_complaint(message)
-
-    return jsonify({
-        "status": "Success",
-        "message": "Chatbot response generated.",
-        "response": {
-            "category": analysis["Category"],
-            "priority": analysis["Priority"],
-            "sentiment": analysis["Sentiment"],
-            "suggestion": analysis["Suggestion"],
-            "summary": analysis["Summary"],
-        }
-    })
-
 @routes.route("/complaints/<int:complaint_id>", methods=["DELETE"])
 def delete_complaint(complaint_id):
     complaint = Complaint.query.get(complaint_id)
