@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Smart Complaint Analyzer - Complaint</title>
+
+
+<style>
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+
+}
+
+
+body{
+
+background:#f1f5f9;
+
+}
+
+
+
+/* Navbar */
+
+nav{
+
+background:#2563eb;
+
+color:white;
+
+padding:20px 40px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin:0 15px;
+
+}
+
+
+
+.container{
+
+width:80%;
+
+margin:40px auto;
+
+}
+
+
+
+h1{
+
+color:#1e3a8a;
+
+margin-bottom:25px;
+
+}
+
+
+
+/* Complaint Form */
+
+
+.complaint-box,
+.result-box{
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+margin-bottom:30px;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+
+
+label{
+
+font-weight:bold;
+
+display:block;
+
+margin-top:15px;
+
+}
+
+
+
+input,
+textarea,
+select{
+
+width:100%;
+
+padding:13px;
+
+margin-top:10px;
+
+border:1px solid #ccc;
+
+border-radius:8px;
+
+font-size:15px;
+
+}
+
+
+
+textarea{
+
+height:150px;
+
+resize:none;
+
+}
+
+
+
+button{
+
+width:100%;
+
+margin-top:20px;
+
+padding:14px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+border-radius:8px;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#1d4ed8;
+
+}
+
+
+
+/* Result */
+
+
+.result-box{
+
+display:none;
+
+background:#eff6ff;
+
+}
+
+
+
+.result-box p{
+
+font-size:18px;
+
+margin:15px 0;
+
+}
+
+
+
+span{
+
+color:#2563eb;
+
+font-weight:bold;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<nav>
+
+
+<h2>
+🤖 AI Complaint Analyzer
+</h2>
+
+
+
+<div>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+
+<a href="complaint.html">
+Complaint
+</a>
+
+
+<a href="history.html">
+History
+</a>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<div class="container">
+
+
+<h1>
+Submit Your Complaint
+</h1>
+
+
+
+
+<div class="complaint-box">
+
+
+<label>
+Complaint Title
+</label>
+
+
+<input type="text"
+id="title"
+placeholder="Enter complaint title">
+
+
+
+
+
+<label>
+Complaint Description
+</label>
+
+
+<textarea 
+id="description"
+placeholder="Explain your problem">
+</textarea>
+
+
+
+
+
+<label>
+Select Category
+</label>
+
+
+<select id="category">
+
+<option>
+Select Category
+</option>
+
+<option>
+Electricity
+</option>
+
+<option>
+Internet
+</option>
+
+<option>
+Banking
+</option>
+
+<option>
+Transport
+</option>
+
+<option>
+Other
+</option>
+
+
+</select>
+
+
+
+
+<button onclick="analyzeComplaint()">
+
+Analyze Complaint
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-box" id="result">
+
+
+<h2>
+🤖 AI Analysis Result
+</h2>
+
+
+
+<p>
+
+Category :
+<span id="resultCategory">
+-
+</span>
+
+</p>
+
+
+
+<p>
+
+Priority :
+<span id="priority">
+-
+</span>
+
+</p>
+
+
+
+
+<p>
+
+Sentiment :
+<span id="sentiment">
+-
+</span>
+
+</p>
+
+
+
+
+<p>
+
+Suggested Solution :
+<span id="solution">
+-
+</span>
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+function analyzeComplaint(){
+
+
+let complaint =
+document.getElementById("description").value;
+
+
+
+if(complaint==""){
+
+alert("Please enter complaint details");
+
+return;
+
+}
+
+
+
+
+// Demo AI Output
+
+document.getElementById("resultCategory").innerHTML =
+"Technical Issue";
+
+
+document.getElementById("priority").innerHTML =
+"High";
+
+
+document.getElementById("sentiment").innerHTML =
+"Negative";
+
+
+document.getElementById("solution").innerHTML =
+"Assigned to customer support team";
+
+
+
+document.getElementById("result").style.display="block";
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

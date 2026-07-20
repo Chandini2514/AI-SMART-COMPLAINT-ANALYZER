@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Smart Complaint Analyzer - Login</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+
+body{
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#2563eb,#1e3a8a);
+
+}
+
+
+
+.login-box{
+
+    width:380px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+
+
+h1{
+
+    color:#2563eb;
+    font-size:25px;
+    margin-bottom:20px;
+
+}
+
+
+
+h2{
+
+    margin-bottom:20px;
+
+}
+
+
+
+input{
+
+    width:100%;
+    padding:13px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+
+}
+
+
+
+.password{
+
+    position:relative;
+
+}
+
+
+
+.password span{
+
+    position:absolute;
+    right:15px;
+    top:22px;
+    cursor:pointer;
+
+}
+
+
+
+button{
+
+    width:100%;
+    padding:13px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+
+}
+
+
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+a{
+
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+
+
+p{
+
+    margin-top:20px;
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+<h1>
+🤖 AI Smart Complaint Analyzer
+</h1>
+
+
+<h2>
+Login
+</h2>
+
+
+
+<input type="email" placeholder="Email">
+
+
+
+<div class="password">
+
+<input type="password" 
+id="pass"
+placeholder="Password">
+
+
+<span onclick="showPassword()">
+👁️
+</span>
+
+
+</div>
+
+
+
+<button onclick="login()">
+Login
+</button>
+
+
+
+<p>
+Don't have account?
+<a href="register.html">
+Register
+</a>
+</p>
+
+
+</div>
+
+
+
+<script>
+
+function login(){
+
+alert("✅ Login Successful!");
+
+window.location.href="dashboard.html";
+
+}
+
+
+
+function showPassword(){
+
+let p=document.getElementById("pass");
+
+
+if(p.type==="password")
+{
+p.type="text";
+}
+
+else
+{
+p.type="password";
+}
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

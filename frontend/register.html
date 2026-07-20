@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Smart Complaint Analyzer - Register</title>
+
+
+<style>
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+
+}
+
+
+body{
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#2563eb,#1e3a8a);
+
+}
+
+
+
+.register-box{
+
+    width:400px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+
+
+h1{
+
+    color:#2563eb;
+    font-size:25px;
+    margin-bottom:20px;
+
+}
+
+
+
+h2{
+
+    margin-bottom:20px;
+
+}
+
+
+
+input{
+
+    width:100%;
+    padding:13px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+
+}
+
+
+
+.password{
+
+    position:relative;
+
+}
+
+
+
+.password span{
+
+    position:absolute;
+    right:15px;
+    top:22px;
+    cursor:pointer;
+
+}
+
+
+
+button{
+
+    width:100%;
+    padding:13px;
+    margin-top:15px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+
+}
+
+
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+a{
+
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+
+
+p{
+
+    margin-top:20px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="register-box">
+
+
+<h1>
+🤖 AI Smart Complaint Analyzer
+</h1>
+
+
+<h2>
+Create Account
+</h2>
+
+
+
+<input type="text" 
+placeholder="Full Name">
+
+
+
+<input type="email"
+placeholder="Email Address">
+
+
+
+
+<div class="password">
+
+<input type="password"
+id="password"
+placeholder="Password">
+
+
+<span onclick="showPassword()">
+👁️
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="password">
+
+<input type="password"
+id="confirmPassword"
+placeholder="Confirm Password">
+
+
+<span onclick="showConfirmPassword()">
+👁️
+</span>
+
+
+</div>
+
+
+
+
+<button onclick="register()">
+
+Register
+
+</button>
+
+
+
+
+<p>
+
+Already have an account?
+
+<a href="index.html">
+Login
+</a>
+
+</p>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+function register(){
+
+
+let pass=document.getElementById("password").value;
+
+let confirm=document.getElementById("confirmPassword").value;
+
+
+
+if(pass!==confirm){
+
+alert("❌ Passwords do not match!");
+
+return;
+
+}
+
+
+
+alert("🎉 Registration Successful!");
+
+window.location.href="index.html";
+
+
+}
+
+
+
+
+
+function showPassword(){
+
+
+let p=document.getElementById("password");
+
+
+if(p.type==="password"){
+
+p.type="text";
+
+}
+
+else{
+
+p.type="password";
+
+}
+
+
+}
+
+
+
+
+
+function showConfirmPassword(){
+
+
+let p=document.getElementById("confirmPassword");
+
+
+if(p.type==="password"){
+
+p.type="text";
+
+}
+
+else{
+
+p.type="password";
+
+}
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

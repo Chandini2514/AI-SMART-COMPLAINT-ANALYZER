@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Smart Complaint Analyzer - Dashboard</title>
+
+
+<style>
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+
+}
+
+
+
+body{
+
+background:#f1f5f9;
+
+}
+
+
+
+/* Navbar */
+
+nav{
+
+background:#2563eb;
+
+color:white;
+
+padding:20px 40px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+nav h2{
+
+font-size:25px;
+
+}
+
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin:0 15px;
+
+font-size:16px;
+
+}
+
+
+
+.logout{
+
+background:white;
+
+color:#2563eb;
+
+padding:10px 18px;
+
+border-radius:8px;
+
+border:none;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+/* Dashboard */
+
+
+.container{
+
+width:90%;
+
+margin:40px auto;
+
+}
+
+
+
+.container h1{
+
+margin-bottom:30px;
+
+color:#1e3a8a;
+
+}
+
+
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+}
+
+
+
+.card{
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+
+
+.card h2{
+
+color:#2563eb;
+
+font-size:40px;
+
+margin-top:15px;
+
+}
+
+
+
+
+.analysis-box{
+
+margin-top:40px;
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+
+
+.analysis-box h2{
+
+color:#1e3a8a;
+
+margin-bottom:15px;
+
+}
+
+
+
+.analysis-box p{
+
+font-size:18px;
+
+line-height:30px;
+
+}
+
+
+
+button{
+
+margin-top:20px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+padding:14px 25px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-size:16px;
+
+}
+
+
+
+button:hover{
+
+background:#1d4ed8;
+
+}
+
+
+
+
+@media(max-width:900px){
+
+.cards{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<nav>
+
+
+<h2>
+🤖 AI Complaint Analyzer
+</h2>
+
+
+
+<div>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+
+<a href="complaint.html">
+Complaint
+</a>
+
+
+<a href="history.html">
+History
+</a>
+
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+
+<div class="container">
+
+
+<h1>
+Welcome to Dashboard
+</h1>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+Total Complaints
+</h3>
+
+<h2>
+120
+</h2>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Resolved
+</h3>
+
+<h2>
+90
+</h2>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Pending
+</h3>
+
+<h2>
+30
+</h2>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+High Priority
+</h3>
+
+<h2>
+15
+</h2>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="analysis-box">
+
+
+<h2>
+AI Complaint Analysis
+</h2>
+
+
+<p>
+
+Our AI system analyzes user complaints,
+classifies the issue category,
+detects priority level and provides
+solution recommendations.
+
+</p>
+
+
+
+<button onclick="goComplaint()">
+
+Submit New Complaint
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+function logout(){
+
+alert("Logged out successfully!");
+
+window.location.href="index.html";
+
+}
+
+
+
+function goComplaint(){
+
+window.location.href="complaint.html";
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
